@@ -47,7 +47,7 @@ jobs:
 
       - name: Make AssetBundle
         if: ${{ steps.cache-assets.outputs.cache-hit != 'true' }}
-        uses: game-ci/unity-builder@v4
+        uses: game-ci/unity-builder@v5.0.0
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
@@ -90,7 +90,7 @@ jobs:
           name: VainSabers-${{ env.COMMIT_SHORT_SHA }}-Release.zip
           path: ${{ steps.build-release.outputs.artifactpath }}
 
-      - name: Upload Release
+      - name: Upload Debug
         uses: actions/upload-artifact@v7
         with:
           name: VainSabers-${{ env.COMMIT_SHORT_SHA }}-Debug.zip
